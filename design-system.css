@@ -1,0 +1,298 @@
+/* ==========================================================================
+   DESIGN SYSTEM OFICIAL: SILVER & WHITE (50 + 50 ANOS)
+   Celebração: Liege & Rogério • Elettra Bar (Vila Olímpia)
+   Baseado na Arte Oficial do Convite
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Turret+Road:wght@400;500;700;800&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400;1,600;1,700;1,800&family=Alex+Brush&family=Tourney:wght@600;700;800&display=swap');
+
+:root {
+  /* ==========================================
+     1. COLOR TOKENS (LIGHT SILVER & WHITE LUXURY)
+     ========================================== */
+
+  /* Fundos Predominantes Claros com Brilho Acetinado */
+  --bg-primary: #ffffff;
+  --bg-surface-light: #f6f7fa;
+  --bg-surface-pearl: #eef1f6;
+  --bg-card-glass: rgba(255, 255, 255, 0.75);
+  --bg-card-hover: rgba(255, 255, 255, 0.90);
+
+  /* Gradientes de Fundo & Prata */
+  --gradient-silver-soft: radial-gradient(circle at 30% 20%, #ffffff 0%, #f4f6fa 60%, #e5e9f0 100%);
+  --gradient-silver-foil: linear-gradient(135deg, #ffffff 0%, #e2e8f0 30%, #94a3b8 50%, #ffffff 70%, #cbd5e1 100%);
+  --gradient-silver-metallic: linear-gradient(180deg, #ffffff 0%, #cbd5e1 40%, #64748b 70%, #94a3b8 100%);
+  --gradient-chrome-badge: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+
+  /* Textos de Alto Contraste & Elegância (Chumbo Grafite Escuro) */
+  --text-headline: #1e2229;
+  --text-title: #2a2f38;
+  --text-body: #4b5563;
+  --text-muted: #6b7280;
+  --text-dim: #9ca3af;
+
+  /* Cores de Destaque Metálico */
+  --silver-bright: #ffffff;
+  --silver-light: #e5e9f0;
+  --silver-medium: #94a3b8;
+  --silver-deep: #475569;
+  --silver-shadow: rgba(0, 0, 0, 0.08);
+
+  /* Linhas Divisórias e Ornamentos */
+  --border-delicate: #e2e8f0;
+  --border-ornament: #cbd5e1;
+  --border-glass: rgba(255, 255, 255, 0.6);
+
+  /* Sombras e Reflexos */
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  --shadow-elevated: 0 12px 32px -4px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-balloon: 0 15px 35px -5px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.1);
+  --glow-light: 0 0 25px rgba(255, 255, 255, 0.8), 0 0 50px rgba(226, 232, 240, 0.5);
+
+  /* ==========================================
+     2. TYPOGRAPHY TOKENS (FONTES OFICIAIS)
+     ========================================== */
+
+  /* Números 50+50 */
+  --font-logo: 'Turret Road', sans-serif;
+
+  /* Nomes Liege & Rogério (Phosphate Inline Style) */
+  --font-names: 'Tourney', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Frase de Efeito Script Caligráfica ("Duas histórias. Cem motivos.") */
+  --font-script: 'Alex Brush', cursive;
+
+  /* Textos de Apoio e Corpo */
+  --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Escala de Tamanhos */
+  --text-xs: 0.8rem;     /* 13px */
+  --text-sm: 0.925rem;   /* 15px */
+  --text-base: 1.05rem;  /* 17px */
+  --text-lg: 1.25rem;    /* 20px */
+  --text-xl: 1.5rem;     /* 24px */
+  --text-2xl: 2rem;      /* 32px */
+  --text-3xl: 2.75rem;   /* 44px */
+  --text-logo: 4.5rem;   /* 72px */
+
+  /* Raios de Arredondamento */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
+
+  /* Transições */
+  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================
+   RESET & BASE STYLES
+   ========================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--gradient-silver-soft);
+  background-attachment: fixed;
+  color: var(--text-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* ==========================================
+   TIPOGRAFIA & ESTILOS DA MARCA
+   ========================================== */
+
+/* Logo 50+50 Oficial */
+.brand-numbers-50 {
+  font-family: var(--font-logo);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: var(--gradient-silver-foil);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.15));
+  display: inline-block;
+  line-height: 0.9;
+}
+
+/* Nomes dos Anfitriões: Phosphate Inline Style */
+.brand-names-inline {
+  font-family: var(--font-names);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-headline);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+/* Frase em Script Suave: Andantino / Alex Brush Style */
+.brand-script-phrase {
+  font-family: var(--font-script);
+  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+  font-weight: 400;
+  color: var(--text-title);
+  line-height: 1.2;
+}
+
+/* Título de Data e Destaque */
+.date-highlight {
+  font-family: var(--font-body);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 700;
+  color: var(--text-headline);
+  line-height: 1.2;
+}
+
+.date-sub {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-title);
+  margin-top: 4px;
+}
+
+/* Local Elettra Bar */
+.venue-title {
+  font-family: var(--font-body);
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-headline);
+}
+
+.venue-address {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 600;
+  color: var(--text-title);
+}
+
+.venue-city {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* Frase de Fechamento Curta em Itálico Bold */
+.closing-quote {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  font-style: italic;
+  font-weight: 700;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ==========================================
+   DIVISÓRIAS ORNAMENTADAS
+   ========================================== */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 320px;
+  margin: 18px auto;
+}
+
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-ornament), transparent);
+}
+
+.ornament-divider .symbol {
+  font-size: 14px;
+  color: var(--silver-medium);
+  transform: rotate(0deg);
+}
+
+/* ==========================================
+   CARDS DE VIDRO CLARO (LIGHT GLASSMORPHISM)
+   ========================================== */
+.glass-card-light {
+  background: var(--bg-card-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--transition-smooth);
+}
+
+.glass-card-light:hover {
+  background: var(--bg-card-hover);
+  box-shadow: var(--shadow-elevated);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   BOTÕES ELEVADOS COM PRATA & BRANCO
+   ========================================== */
+.btn-silver-metallic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #d1d5db;
+  background: var(--gradient-silver-foil);
+  color: #1e2229;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all var(--transition-smooth);
+}
+
+.btn-silver-metallic:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 1);
+  filter: brightness(1.03);
+}
+
+.btn-white-glass {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 28px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  background: #ffffff;
+  color: var(--text-headline);
+  border: 1px solid #e2e8f0;
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--transition-smooth);
+}
+
+.btn-white-glass:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-elevated);
+  transform: translateY(-2px);
+}

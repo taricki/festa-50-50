@@ -1,0 +1,917 @@
+/* ==========================================================================
+   LANDING PAGE: 50+50 LIEGE & ROGÉRIO • ELETTRA BAR
+   Design System Oficial: Silver & White • Mobile-First Luxury UI
+   Cores 100% Neutras (Cinzas Puros & Prata Sem Tons Azulados)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Turret+Road:wght@700;800&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Alex+Brush&family=Tourney:wght@700;800&display=swap');
+
+:root {
+  /* Cores & Superfícies (Cinza Puro Neutro / Silver) */
+  --bg-body: #f2f2f4;
+  --bg-white: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.95);
+  --bg-card-subtle: #eeeeef;
+  
+  /* Textos Puros Neutros (Sem Azul) */
+  --text-main: #17171a;
+  --text-headline: #212124;
+  --text-muted: #5c5c63;
+  --text-dim: #8a8a92;
+
+  /* Pratas & Metais */
+  --silver-bright: #ffffff;
+  --silver-light: #e4e4e7;
+  --silver-border: #d4d4d8;
+  --silver-accent: #92929a;
+  --silver-gradient: linear-gradient(135deg, #ffffff 0%, #d4d4d8 50%, #9e9ea6 100%);
+  --silver-foil: linear-gradient(135deg, #ffffff 0%, #e4e4e7 35%, #9e9ea6 65%, #ffffff 100%);
+  --silver-btn: linear-gradient(180deg, #ffffff 0%, #e8e8ea 100%);
+
+  /* Sombras Modernas */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-card: 0 12px 30px -4px rgba(0, 0, 0, 0.07), 0 4px 10px rgba(0, 0, 0, 0.03);
+  --shadow-floating: 0 20px 45px -10px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.04);
+
+  /* Bordas & Raios */
+  --border-subtle: 1px solid var(--silver-border);
+  --border-light: 1px solid rgba(255, 255, 255, 0.8);
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-pill: 9999px;
+
+  /* Fontes */
+  --font-logo: 'Turret Road', sans-serif;
+  --font-names: 'Tourney', sans-serif;
+  --font-script: 'Alex Brush', cursive;
+  --font-body: 'Open Sans', sans-serif;
+
+  /* Transição */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container Mobile-First (Largura máxima 520px com respiro no desktop) */
+.mobile-wrapper {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: #ffffff;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ==========================================
+   1. HERO BANNER COM SLIDER PB CLAREADO
+   ========================================== */
+.hero-banner {
+  position: relative;
+  width: 100%;
+  min-height: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 44px 18px 36px;
+  text-align: center;
+  overflow: hidden;
+  background: #111113;
+}
+
+/* Slider de Fotos PB Clareado */
+.hero-slider {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.4s ease-in-out, transform 6s ease-out;
+  transform: scale(1.05);
+  /* Efeito Preto e Branco Clareado de Alto Padrão */
+  filter: grayscale(100%) brightness(1.15) contrast(0.92);
+}
+
+.hero-slide.active {
+  opacity: 0.65;
+  transform: scale(1);
+}
+
+/* Máscara de Degradê Suave para o Texto Ficar Impecável */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.40) 0%,
+    rgba(255, 255, 255, 0.78) 45%,
+    rgba(255, 255, 255, 0.98) 85%,
+    #ffffff 100%
+  );
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Indicadores do Slider (10 Pontos) */
+.slider-dots {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 18px;
+  z-index: 3;
+  justify-content: center;
+}
+
+.slider-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: rgba(40, 40, 45, 0.22);
+  transition: all 0.3s var(--ease);
+  cursor: pointer;
+}
+
+.slider-dot.active {
+  width: 20px;
+  background: var(--text-headline);
+}
+
+/* Tag Pill */
+.hero-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 212, 216, 0.9);
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 14px;
+}
+
+.hero-tag-pill .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #71717a;
+}
+
+/* Logo 50+50 Oficial Facetado Centralizado - Aumentado em +30% */
+.hero-logo-box {
+  width: 360px;
+  max-width: 92%;
+  height: 300px;
+  margin: 0 auto 16px;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.20));
+  animation: floatSubtle 4s ease-in-out infinite;
+}
+
+.hero-logo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+@keyframes floatSubtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Títulos - Aumentados em +40% */
+.hero-names {
+  font-family: var(--font-names);
+  font-size: clamp(2.2rem, 7.6vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.hero-script {
+  font-family: var(--font-script);
+  font-size: clamp(2.0rem, 6.8vw, 2.4rem);
+  color: var(--text-headline);
+  line-height: 1.25;
+  margin-bottom: 22px;
+}
+
+/* Resumo de Serviço do Hero */
+.hero-service-badge {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--silver-border);
+  border-radius: var(--radius-md);
+  padding: 12px 20px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.hero-date-text {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.hero-venue-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+/* ==========================================
+   2. CONTAGEM REGRESSIVA (COUNTDOWN)
+   ========================================== */
+.countdown-lead-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #71717a;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.countdown-lead-label::before,
+.countdown-lead-label::after {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: #d4d4d8;
+}
+
+.countdown-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.countdown-box {
+  background: #f4f4f6;
+  border: 1px solid var(--silver-border);
+  border-radius: var(--radius-sm);
+  padding: 10px 4px;
+  text-align: center;
+}
+
+.countdown-number {
+  font-family: var(--font-body);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1;
+}
+
+.countdown-unit {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* ==========================================
+   BOTÕES DE AÇÃO (CTAs) - COR VERDE DESTAQUE
+   ========================================== */
+.btn-cta-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff !important;
+  border: 1px solid #047857;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.25s var(--ease);
+}
+
+.btn-cta-primary:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  box-shadow: 0 10px 28px rgba(16, 185, 129, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-cta-primary:active {
+  transform: scale(0.98);
+}
+
+/* Elementos Festivos nos Cantos */
+.decor-globo-hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 125px;
+  height: auto;
+  pointer-events: none;
+  z-index: 15;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.10));
+  animation: gentleSway 5s ease-in-out infinite;
+}
+
+.decor-fitas-hero {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 75px;
+  height: auto;
+  pointer-events: none;
+  z-index: 15;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.08));
+}
+
+.decor-bexigas-bottom {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 110px;
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.12));
+  animation: balloonFloat 6s ease-in-out infinite alternate;
+}
+
+.decor-confetes-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 90px;
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+@keyframes gentleSway {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(4px) rotate(1.5deg); }
+}
+
+@keyframes balloonFloat {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-8px) scale(1.02); }
+}
+
+.btn-pill-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background: #ffffff;
+  border: 1px solid var(--silver-border);
+  border-radius: var(--radius-pill);
+  color: var(--text-main);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s var(--ease);
+  flex: 1;
+}
+
+.btn-pill-action:active {
+  background: var(--bg-card-subtle);
+  transform: scale(0.97);
+}
+
+/* ==========================================
+   ESTRUTURA DAS SEÇÕES
+   ========================================== */
+.section-wrapper {
+  padding: 38px 20px;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.section-label-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--silver-accent);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+
+/* ==========================================================================
+   TEMAS INTERCALADOS (CINZA CLARO, BRANCO, CINZA ESCURO NEGATIVO)
+   ========================================================================== */
+
+/* 1. TEMA CINZA CLARO (STATS) */
+.theme-gray-light {
+  background-color: #f3f3f5;
+  border-bottom: 1px solid #e4e4e7;
+}
+
+.theme-gray-light .section-label-tag {
+  color: #71717a;
+}
+
+.theme-gray-light .section-title {
+  color: #17171a;
+}
+
+.theme-gray-light p {
+  color: #5c5c63;
+}
+
+.theme-gray-light .stat-card {
+  background: #ffffff;
+  border: 1px solid #d4d4d8;
+  box-shadow: var(--shadow-sm);
+}
+
+.theme-gray-light .stat-num {
+  color: #17171a;
+}
+
+.theme-gray-light .stat-label {
+  color: #5c5c63;
+}
+
+/* Grid de Métricas */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.stat-card {
+  border-radius: var(--radius-md);
+  padding: 16px 14px;
+  text-align: left;
+}
+
+.stat-num {
+  font-family: var(--font-logo);
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-top: 6px;
+  line-height: 1.3;
+}
+
+/* 2. TEMA CINZA ESCURO NEGATIVO (LOCALIZAÇÃO / ELETTRA BAR) */
+.theme-dark {
+  background-color: #17181c;
+  border-bottom: 1px solid #282930;
+  color: #f4f4f5;
+}
+
+.theme-dark .section-label-tag {
+  color: #a1a1aa;
+}
+
+.theme-dark .section-title {
+  color: #ffffff;
+}
+
+.theme-dark .venue-desc {
+  font-size: 0.88rem;
+  color: #d4d4d8;
+  line-height: 1.5;
+}
+
+.theme-dark .venue-card {
+  background: #202127;
+  border: 1px solid #343640;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.theme-dark .venue-icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #2b2d35;
+  border: 1px solid #3f424e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.theme-dark .venue-name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.theme-dark .venue-sub {
+  font-size: 0.85rem;
+  color: #a1a1aa;
+}
+
+.theme-dark .btn-pill-action {
+  background: #2a2c34;
+  border: 1px solid #3f424e;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.theme-dark .btn-pill-action:hover {
+  background: #353842;
+  border-color: #525666;
+  color: #ffffff;
+}
+
+.theme-dark .tip-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #252730;
+  border: 1px solid #343640;
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  font-size: 0.8rem;
+  color: #d4d4d8;
+  margin-top: 14px;
+}
+
+.venue-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.map-buttons-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+/* 3. TEMA BRANCO PURO (DRESS CODE) */
+.theme-white {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e4e4e7;
+}
+
+.theme-white .section-label-tag {
+  color: #71717a;
+}
+
+.theme-white .section-title {
+  color: #17171a;
+}
+
+.theme-white .dress-card {
+  background: #f7f7f9;
+  border: 1px solid #d4d4d8;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.theme-white .dress-lead {
+  font-size: 0.92rem;
+  color: #212124;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.theme-white .dress-sub {
+  font-size: 0.85rem;
+  color: #5c5c63;
+  line-height: 1.5;
+}
+
+.dress-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 14px 0;
+}
+
+.dress-pill-tag {
+  padding: 6px 14px;
+  background: #ffffff;
+  border: 1px solid #d4d4d8;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #17171a;
+}
+
+/* 4. TEMA CINZA MÉDIO PLATINA (PRESENTES / VIAGEM) */
+.theme-gray-platina {
+  background-color: #eaebee;
+  border-bottom: 1px solid #d4d4d8;
+}
+
+.theme-gray-platina .section-label-tag {
+  color: #71717a;
+}
+
+.theme-gray-platina .section-title {
+  color: #17171a;
+}
+
+.theme-gray-platina .gift-card {
+  background: #ffffff;
+  border: 1px solid #d4d4d8;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.gift-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.gift-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gift-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.gift-content {
+  padding: 20px;
+}
+
+.theme-gray-platina .gift-desc {
+  font-size: 0.9rem;
+  color: #5c5c63;
+  line-height: 1.55;
+}
+
+.pix-box {
+  background: #f4f4f6;
+  border: 1px dashed #b8b8c0;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  text-align: center;
+  margin-top: 14px;
+}
+
+.pix-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #5c5c63;
+  margin-bottom: 6px;
+}
+
+.pix-key-display {
+  font-family: monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #17171a;
+  background: #ffffff;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid #d4d4d8;
+  margin-bottom: 10px;
+  word-break: break-all;
+}
+
+.btn-copy-pix {
+  width: 100%;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid #d4d4d8;
+  color: #17171a;
+}
+
+.btn-copy-pix:hover {
+  background: #f4f4f6;
+}
+
+/* 5. TEMA CINZA ESCURO GRAFITE NEGATIVO (RSVP / FORMULÁRIO) */
+.theme-dark-charcoal {
+  background-color: #121316;
+  border-bottom: 1px solid #23242a;
+  color: #f4f4f5;
+}
+
+.theme-dark-charcoal .section-label-tag {
+  color: #a1a1aa;
+}
+
+.theme-dark-charcoal .section-title {
+  color: #ffffff;
+}
+
+.theme-dark-charcoal .rsvp-lead {
+  font-size: 0.88rem;
+  color: #a1a1aa;
+  margin-bottom: 20px;
+}
+
+.theme-dark-charcoal .rsvp-card {
+  background: #1b1c21;
+  border: 1px solid #2d2f36;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+}
+
+.theme-dark-charcoal .form-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #e4e4e7;
+  margin-bottom: 6px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.theme-dark-charcoal .form-input,
+.theme-dark-charcoal .form-select,
+.theme-dark-charcoal .form-textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: #23252d;
+  border: 1px solid #363842;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: #ffffff;
+  outline: none;
+  transition: all 0.2s var(--ease);
+}
+
+.theme-dark-charcoal .form-input::placeholder,
+.theme-dark-charcoal .form-textarea::placeholder {
+  color: #71717a;
+}
+
+.theme-dark-charcoal .form-input:focus,
+.theme-dark-charcoal .form-select:focus,
+.theme-dark-charcoal .form-textarea:focus {
+  background: #282a34;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 85px;
+}
+
+/* Feedback de Confirmação */
+.theme-dark-charcoal .rsvp-success-banner {
+  display: none;
+  background: #142e1f;
+  border: 1px solid #166534;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-align: center;
+  color: #86efac;
+  margin-top: 16px;
+}
+
+.theme-dark-charcoal .rsvp-success-banner p {
+  color: #bbf7d0;
+}
+
+/* 6. RODAPÉ E FECHAMENTO OFICIAL */
+.theme-footer-light {
+  padding: 48px 24px 70px;
+  text-align: center;
+  background-color: #f2f2f4;
+  border-top: 1px solid #e0e0e4;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-quote {
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 700;
+  color: #4b4b52;
+  line-height: 1.4;
+  max-width: 310px;
+  margin: 0 auto 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-hosts {
+  font-family: var(--font-names);
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #17171a;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-date-info {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-credit {
+  font-size: 0.72rem;
+  color: #8a8a92;
+  margin-top: 18px;
+  position: relative;
+  z-index: 2;
+}
