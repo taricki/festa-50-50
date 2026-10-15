@@ -936,13 +936,13 @@ body {
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
 }
 
-/* Aviso Educado de Evento Exclusivo para Adultos */
+/* Aviso Educado de Evento Exclusivo para Adultos - Tom Dourado (#94886a) */
 .rsvp-adults-notice {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(148, 136, 106, 0.12);
+  border: 1px solid #94886a;
   border-radius: var(--radius-sm);
   padding: 12px 14px;
   margin-bottom: 20px;
@@ -956,10 +956,10 @@ body {
 }
 
 .rsvp-adults-text {
-  font-size: 0.85rem;
-  color: #e4e4e7;
+  font-size: 0.86rem;
+  color: #dfd7c3;
   line-height: 1.45;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .theme-dark-charcoal .form-label {
