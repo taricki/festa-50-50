@@ -142,7 +142,7 @@ body {
 
 .hero-content {
   position: relative;
-  z-index: 3;
+  z-index: 10;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -174,11 +174,13 @@ body {
 
 /* Tag Pill */
 .hero-tag-pill {
+  position: relative;
+  z-index: 25;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 6px 16px;
-  background: rgba(255, 255, 255, 0.90);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(212, 212, 216, 0.9);
   border-radius: var(--radius-pill);
@@ -424,7 +426,7 @@ body {
   width: 125px;
   height: auto;
   pointer-events: none;
-  z-index: 15;
+  z-index: 2;
   filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.10));
   animation: gentleSway 5s ease-in-out infinite;
 }
@@ -932,6 +934,32 @@ body {
   border-radius: var(--radius-lg);
   padding: 24px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+}
+
+/* Aviso Educado de Evento Exclusivo para Adultos */
+.rsvp-adults-notice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.rsvp-adults-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.rsvp-adults-text {
+  font-size: 0.85rem;
+  color: #e4e4e7;
+  line-height: 1.45;
+  font-weight: 500;
 }
 
 .theme-dark-charcoal .form-label {
