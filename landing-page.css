@@ -198,14 +198,48 @@ body {
   background: #71717a;
 }
 
-/* Logo 50+50 Oficial Facetado Centralizado - Aumentado em +30% */
+/* Palco da Marca: Garrafa colada na esquerda, Taça colada na direita, 200% maiores */
+.hero-stage {
+  position: relative;
+  width: calc(100% + 36px);
+  margin-left: -18px;
+  margin-right: -18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  margin-bottom: 16px;
+  min-height: 270px;
+  z-index: 3;
+}
+
+.hero-champagne-bottle {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(115px, 26vw, 155px);
+  height: auto;
+  max-height: 290px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.22));
+  animation: bottleFloat 4s ease-in-out infinite;
+  user-select: none;
+  pointer-events: none;
+  z-index: 2;
+}
+
 .hero-logo-box {
-  width: 360px;
-  max-width: 92%;
-  height: 300px;
-  margin: 0 auto 16px;
+  width: clamp(200px, 52vw, 280px);
+  height: 250px;
+  margin: 0 auto;
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.20));
   animation: floatSubtle 4s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 4;
 }
 
 .hero-logo-box img {
@@ -213,6 +247,32 @@ body {
   height: 100%;
   object-fit: contain;
   display: block;
+}
+
+.hero-champagne-glass {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(90px, 20vw, 125px);
+  height: auto;
+  max-height: 290px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.22));
+  animation: glassFloat 4s ease-in-out infinite;
+  user-select: none;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes bottleFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(-1.5deg); }
+}
+
+@keyframes glassFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(1.5deg); }
 }
 
 @keyframes floatSubtle {
@@ -227,7 +287,7 @@ body {
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--text-main);
+  color: #94886a;
   line-height: 1.1;
   margin-bottom: 6px;
 }
@@ -254,7 +314,7 @@ body {
 .hero-date-text {
   font-size: 1.1rem;
   font-weight: 800;
-  color: var(--text-main);
+  color: #a55858;
 }
 
 .hero-venue-text {
@@ -734,6 +794,75 @@ body {
   line-height: 1.55;
 }
 
+/* Lista de Causas Solidárias (UX Otimizada) */
+.causes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.cause-item {
+  background: #f7f7f9;
+  border: 1px solid #dcdce2;
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cause-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.cause-badge {
+  background: #17171a;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 800;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  min-width: 58px;
+  text-align: center;
+  line-height: 1;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.cause-info {
+  flex: 1;
+}
+
+.cause-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #17171a;
+  margin-bottom: 2px;
+}
+
+.cause-desc {
+  font-size: 0.8rem;
+  color: #5c5c63;
+  line-height: 1.35;
+}
+
+.donation-quote-box {
+  background: rgba(148, 136, 106, 0.10);
+  border-left: 3px solid #94886a;
+  padding: 12px 14px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin: 16px 0 14px;
+  font-size: 0.85rem;
+  color: #433e33;
+  font-style: italic;
+  line-height: 1.45;
+  text-align: left;
+}
+
 .pix-box {
   background: #f4f4f6;
   border: 1px dashed #b8b8c0;
@@ -894,7 +1023,7 @@ body {
   font-size: 1.3rem;
   font-weight: 800;
   letter-spacing: 0.08em;
-  color: #17171a;
+  color: #94886a;
   text-transform: uppercase;
   position: relative;
   z-index: 2;
@@ -906,6 +1035,11 @@ body {
   margin-top: 6px;
   position: relative;
   z-index: 2;
+}
+
+.footer-date-highlight {
+  color: #a55858;
+  font-weight: 700;
 }
 
 .footer-credit {

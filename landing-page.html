@@ -60,9 +60,15 @@
           Festa Exclusiva • 100 Convidados
         </div>
 
-        <!-- Logo 50+50 Oficial Cromado/Facetado Centralizado -->
-        <div class="hero-logo-box">
-          <img src="assets/logo_50_50_prata_transparente.png" alt="Logo 50+50 Oficial Facetado">
+        <!-- Palco do Banner: Garrafa Champagne (esq) + Logo 50+50 + Taça Champagne (dir) -->
+        <div class="hero-stage">
+          <img src="assets/champagne_garrafa.png" class="hero-champagne-bottle" alt="Garrafa de Champagne Estourando">
+          
+          <div class="hero-logo-box">
+            <img src="assets/logo_50_50_prata_transparente.png" alt="Logo 50+50 Oficial Facetado">
+          </div>
+
+          <img src="assets/champagne_taca.png" class="hero-champagne-glass" alt="Taça de Champagne Brindando">
         </div>
 
         <h1 class="hero-names">
@@ -136,7 +142,7 @@
         </div>
         <div class="stat-card">
           <div class="stat-num">01</div>
-          <div class="stat-label">Noite única de pista e brindes</div>
+          <div class="stat-label">Noite única de pista e celebração</div>
         </div>
         <div class="stat-card">
           <div class="stat-num">5h</div>
@@ -188,60 +194,86 @@
     </section>
 
     <!-- ==========================================================================
-         4. DRESS CODE: SILVER & WHITE
+         4. DRESS CODE: CINZA & BRANCO
          ========================================================================== -->
     <section class="section-wrapper theme-white">
       <span class="section-label-tag">— Traje</span>
       <h2 class="section-title">
-        Dress Code: Silver &amp; White
+        Dress Code: Cinza &amp; Branco
       </h2>
 
       <div class="dress-card">
         <p class="dress-lead">
-          Para criar uma atmosfera luminosa e harmoniosa com a cenografia da festa, sugerimos looks com toques de prata ou branco:
+          Para criar uma atmosfera harmoniosa e sofisticada com a nossa celebração, sugerimos looks em tons de cinza ou branco:
         </p>
 
         <div class="dress-pills">
-          <span class="dress-pill-tag">✨ Toque de Prata</span>
+          <span class="dress-pill-tag">🩶 Tons de Cinza</span>
           <span class="dress-pill-tag">🤍 Look All-White</span>
-          <span class="dress-pill-tag">🪩 Brilho Metálico</span>
           <span class="dress-pill-tag">🍸 Chic Casual</span>
+          <span class="dress-pill-tag">✨ Toques de Branco</span>
         </div>
 
         <p class="dress-sub">
-          Venha elegante e confortável para aproveitar a pista de dança e os brindes até o final da noite!
+          Venha elegante e confortável para aproveitar a pista de dança e a festa até o final da noite!
         </p>
       </div>
     </section>
 
     <!-- ==========================================================================
-         5. SUGESTÃO DE PRESENTE: VIAGEM COMEMORATIVA
+         5. SUGESTÃO DE PRESENTE: DOAÇÕES SOLIDÁRIAS
          ========================================================================== -->
     <section class="section-wrapper theme-gray-platina">
-      <span class="section-label-tag">— Presentes</span>
+      <span class="section-label-tag">— Gesto Solidário</span>
       <h2 class="section-title">
-        Viagem Comemorativa dos 50
+        Um presente que vai além da celebração
       </h2>
 
       <div class="gift-card">
-        <div class="gift-image-wrapper">
-          <img src="assets/destino_viagem.jpg" alt="Destino de Viagem Comemorativa">
-          <div class="gift-badge">✈️ Viagem dos Sonhos</div>
-        </div>
-
         <div class="gift-content">
-          <p class="gift-desc">
-            O nosso maior e mais precioso presente é a sua presença para brindar com a gente! Mas para quem desejar nos presentear de forma especial, qualquer contribuição para a nossa <strong>viagem comemorativa dos 50 anos</strong> será recebida com muito carinho.
+          <p class="gift-desc" style="font-size: 0.94rem; color: #3f3f46; line-height: 1.6; margin-bottom: 16px;">
+            Neste aniversário, escolhemos transformar o carinho recebido em um gesto de amor ao próximo. Para quem desejar nos presentear, a sugestão é contribuir com qualquer valor, que será <strong>integralmente destinado a três instituições</strong> escolhidas com muito carinho:
           </p>
+
+          <!-- Grid de Causas com Leitura Ágil em UX -->
+          <div class="causes-list">
+            <div class="cause-item">
+              <div class="cause-badge">40%</div>
+              <div class="cause-info">
+                <div class="cause-title">👵 Apoio a Idosos</div>
+                <div class="cause-desc">Cuidado, assistência e dignidade na terceira idade</div>
+              </div>
+            </div>
+
+            <div class="cause-item">
+              <div class="cause-badge">40%</div>
+              <div class="cause-info">
+                <div class="cause-title">🧸 Abrigo para Crianças</div>
+                <div class="cause-desc">Acolhimento, amparo e novas oportunidades infantis</div>
+              </div>
+            </div>
+
+            <div class="cause-item">
+              <div class="cause-badge">20%</div>
+              <div class="cause-info">
+                <div class="cause-title">🐾 Abrigo para Cães</div>
+                <div class="cause-desc">Proteção, resgate e cuidados essenciais de saúde animal</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="donation-quote-box">
+            ❤️ <em>"Mais do que presentes, gostaríamos de celebrar compartilhando amor e alcançando outras vidas."</em>
+          </div>
 
           <!-- Box de Chave PIX Interativo -->
           <div class="pix-box">
             <div class="pix-label">
-              Chave PIX
+              Contribuição Solidária • Chave PIX
             </div>
             
             <div class="pix-key-display" id="pixKeyText">
-              chavepix@exemplo.com.br
+              contato@liegerogerio50.com.br
             </div>
 
             <button class="btn-pill-action btn-copy-pix" onclick="copyPixKey()">
@@ -329,7 +361,7 @@
       </div>
 
       <div class="footer-date-info">
-        50+50 Anos • Elettra Bar • 14.Nov.2026
+        50+50 Anos • Elettra Bar • <span class="footer-date-highlight">14.Nov.2026</span>
       </div>
 
       <div class="footer-credit">
