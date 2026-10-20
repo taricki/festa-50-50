@@ -477,37 +477,55 @@
       });
     }
 
-    // 4. Submissão do Formulário RSVP
-    function handleRsvpSubmit(e) {
+    // 4. Submissão do Formulário RSVP (Envio Direto sem abrir aplicativo de email)
+    async function handleRsvpSubmit(e) {
       e.preventDefault();
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Enviando confirmação... ⏳';
+      }
+
       const name = document.getElementById('guestName').value;
       const attendance = document.getElementById('attendance').value;
       const companion = document.getElementById('guestCompanion').value;
       const phone = document.getElementById('guestPhone').value;
       const message = document.getElementById('guestMessage').value;
 
-      // Oculta formulário e exibe mensagem de sucesso
+      const payload = {
+        nome: name,
+        presenca: attendance === 'sim' ? 'SIM, confirmado! 🥂' : 'NÃO poderá ir 🤍',
+        acompanhante: companion || 'Nenhum',
+        telefone: phone,
+        mensagem: message || 'Sem mensagem adicional',
+        _subject: `Confirmação de Presença 50+50: ${name}`,
+        _template: 'table'
+      };
+
+      // Dispara envio silencioso direto para o email em segundo plano
+      try {
+        await Promise.any([
+          fetch('https://formsubmit.co/ajax/liege_i@yahoo.com', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          }),
+          fetch('https://meuaniver.com.br/rsvp.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          })
+        ]);
+      } catch (err) {
+        console.warn('Envio direto disparado:', err);
+      }
+
+      // Oculta formulário e exibe mensagem de sucesso na tela sem abrir nenhum aplicativo
       document.getElementById('rsvpForm').style.display = 'none';
       document.getElementById('rsvpSuccess').style.display = 'block';
-
-      // Prepara envio por email (mailto)
-      const subject = encodeURIComponent(`Confirmação de Presença 50+50: ${name}`);
-      const body = encodeURIComponent(
-        `Confirmação para a Festa dos 50+50 Anos (Liege & Rogério)\n\n` +
-        `• Convidado: ${name}\n` +
-        `• Presença: ${attendance === 'sim' ? 'SIM, confirmado!' : 'NÃO poderá ir'}\n` +
-        `• Acompanhante: ${companion || 'Nenhum'}\n` +
-        `• WhatsApp: ${phone}\n` +
-        `• Mensagem: ${message || 'Sem mensagem adicional'}\n`
-      );
-
-      // Abre cliente de email como backup prático
-      const mailtoLink = `mailto:liege_i@yahoo.com?subject=${subject}&body=${body}`;
-      
-      // Opcional: dispara o mailto em background após 1 segundo
-      setTimeout(() => {
-        window.location.href = mailtoLink;
-      }, 1000);
     }
   </script>
 </body>
