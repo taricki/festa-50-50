@@ -5,6 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>50+50 Anos • Liege & Rogério | Elettra Bar</title>
   <meta name="description" content="Celebração dos 50+50 Anos de Liege & Rogério no Elettra Bar. 14 de Novembro, Vila Olímpia.">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="50+50 Anos • Liege & Rogério | Elettra Bar">
+  <meta property="og:description" content="Celebração dos 50+50 Anos de Liege & Rogério no Elettra Bar. 14 de Novembro, Vila Olímpia.">
+  <meta property="og:image" content="https://festa-50-50.vercel.app/assets/share_preview.jpg">
+  <meta property="og:image:secure_url" content="https://festa-50-50.vercel.app/assets/share_preview.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="903">
+  <meta property="og:image:height" content="903">
+  <meta property="og:image:alt" content="50+50 Liege & Rogério">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="50+50 Anos • Liege & Rogério | Elettra Bar">
+  <meta name="twitter:description" content="Celebração dos 50+50 Anos de Liege & Rogério no Elettra Bar. 14 de Novembro, Vila Olímpia.">
+  <meta name="twitter:image" content="https://festa-50-50.vercel.app/assets/share_preview.jpg">
   <link rel="stylesheet" href="landing-page.css">
 </head>
 <body>
@@ -111,7 +130,7 @@
         </div>
 
         <!-- CTA Principal Verde -->
-        <a href="#rsvp" class="btn-cta-primary">
+        <a href="#rsvp" class="btn-cta-primary" onclick="document.getElementById('rsvp').scrollIntoView({behavior: 'smooth'}); return false;">
           Confirmar Presença ↓
         </a>
       </div>
@@ -210,7 +229,7 @@
         <div class="dress-pills">
           <span class="dress-pill-tag">🩶 Tons de Cinza</span>
           <span class="dress-pill-tag">🤍 Look All-White</span>
-          <span class="dress-pill-tag">🍸 Chic Casual</span>
+          <span class="dress-pill-tag">🍸 Chic Casual, jeans inclusive!</span>
           <span class="dress-pill-tag">✨ Toques de Branco</span>
         </div>
 
@@ -273,7 +292,7 @@
             </div>
             
             <div class="pix-key-display" id="pixKeyText">
-              contato@liegerogerio50.com.br
+              contato@meuaniver.com.br
             </div>
 
             <button class="btn-pill-action btn-copy-pix" onclick="copyPixKey()">
@@ -482,7 +501,7 @@
       );
 
       // Abre cliente de email como backup prático
-      const mailtoLink = `mailto:contato@liegerogerio50.com.br?subject=${subject}&body=${body}`;
+      const mailtoLink = `mailto:contato@meuaniver.com.br?subject=${subject}&body=${body}`;
       
       // Opcional: dispara o mailto em background após 1 segundo
       setTimeout(() => {
