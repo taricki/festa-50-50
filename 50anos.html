@@ -502,25 +502,34 @@
         _template: 'table'
       };
 
-      // Dispara envio silencioso direto para o email em segundo plano
+      // Dispara envio silencioso único para o e-mail em segundo plano
       try {
-        await Promise.any([
-          fetch('https://formsubmit.co/ajax/liege_i@yahoo.com', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            },
-            body: JSON.stringify(payload)
-          }),
-          fetch('https://meuaniver.com.br/rsvp.php', {
+        const response = await fetch('https://formsubmit.co/ajax/liege_i@yahoo.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        // Caso o FormSubmit falhe, usa o rsvp.php como fallback
+        if (!response.ok) {
+          await fetch('https://meuaniver.com.br/rsvp.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
-          })
-        ]);
+          });
+        }
       } catch (err) {
-        console.warn('Envio direto disparado:', err);
+        // Fallback em caso de erro de conexão
+        try {
+          await fetch('https://meuaniver.com.br/rsvp.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        } catch (e) {}
       }
 
       // Oculta formulário e exibe mensagem de sucesso na tela sem abrir nenhum aplicativo
